@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Hello_World" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleAspectFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="IMG_1569" translatesAutoresizingMaskIntoConstraints="NO" id="Hsz-pv-xXI">
+                                <rect key="frame" x="168" y="111" width="150" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Hsz-pv-xXI" secondAttribute="height" multiplier="3:4" id="apM-Ip-Nwb"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.99322952868470804" blue="0.98041818640422618" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Hsz-pv-xXI" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="8:10" priority="750" id="0qo-B0-UgQ"/>
+                            <constraint firstItem="Hsz-pv-xXI" firstAttribute="width" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="8:10" id="5Dc-8R-7Xj"/>
+                            <constraint firstItem="Hsz-pv-xXI" firstAttribute="height" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="8:10" id="BtR-BM-0ug"/>
+                            <constraint firstItem="Hsz-pv-xXI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Hbt-hH-BV1"/>
+                            <constraint firstItem="Hsz-pv-xXI" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="8:10" priority="750" id="W2M-90-wBl"/>
+                            <constraint firstItem="Hsz-pv-xXI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ayA-Lt-grt"/>
+                        </constraints>
+                    </view>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="418" y="24"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="IMG_1569" width="2448" height="3264"/>
+    </resources>
+</document>

@@ -111,10 +111,58 @@ class Problem3: UIViewController{
         super.viewDidLoad()
         self.title = ("Problem 3")
     }
-    
-    @IBAction func button(sender: AnyObject) {
-        textBox.text = "happy birthday"
+    func step(cell: [[Bool]]) -> ([[Bool]]) {
+        var neighborCount = 0
+        var cells = cell
+        for x in 0...9{
+            for y in 0...9{
+                neighborCount = 0
+                for q in -1...1{
+                    for z in -1...1{
+                        if cells[(10+x+q)%10][(10+y+z)%10] == true && (q != 0 && z != 0){
+                            neighborCount += 1
+                        }
+                        
+                        if cells[x][y] == true {
+                            if neighborCount < 2 || neighborCount > 3 {
+                                cells [x][y] = false
+                            }
+                            
+                        } else {
+                            if neighborCount == 3 {
+                                cells [x][y] = true
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+
+        
+        return cells
     }
+    @IBAction func button(sender: AnyObject) {
+        var cells = [[Bool]](count:10, repeatedValue: Array(count:10, repeatedValue: false))
+        var count = 0
+        for x in 0...9 {
+            for y in 0...9 {
+                if arc4random_uniform(3) == 1 {
+                    cells[x][y] = true
+                }
+            }
+            
+        }
+        cells = step(cells)
+        for x in 0...9{
+                for y in 0...9{
+                    if cells[x][y] == true{
+                        count += 1
+                    }
+                }
+            }
+            textBox.text = "living cells = \(count)"
+        }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

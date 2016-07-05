@@ -111,8 +111,6 @@
                             cells2 [x][y] = true
                         }
                     }
-                    
-                    
                 }
             }
             count = 0
@@ -232,11 +230,12 @@
         
         override func viewDidLoad() {
             super.viewDidLoad()
-            self.title = ("Problem 3")
+            self.title = ("Problem 4")
             
         }
         @IBAction func button(sender: AnyObject) {
             var cells = [[Bool]](count:10, repeatedValue: Array(count:10, repeatedValue: false))
+            
             
             for x in 0...9 {
                 for y in 0...9 {
@@ -245,26 +244,32 @@
                     } else {
                         cells[x][y] = false
                     
-                    
+                    }
+                }
                 
                 
                 cells = steps(cells)
+                var line = ""
                 var count = 0
+
                 for x in 0...9{
+                    line = ""
                     for y in 0...9{
                         if cells[x][y] == true{
                             count += 1
+                            line += "x"
+                        } else {
+                            line += "o"
                         }
                     }
                 }
+                    //print ("\(line)")
+
                 textBox.text = "living cells = \(count)"
-                
-                    }
-                }
+
             }
             
         }
-            //brackets good
         func neighbors(coordinates: (Int,Int)) -> ([(Int, Int)]){
             var neighborCoordinates = [(Int,Int)]()
             for x in (-1)...1 {
@@ -287,7 +292,7 @@
                     neighborCoordinates += [tempCoordinates]
                 }
             }
-                return neighborCoordinates
+            return neighborCoordinates
         }
         
             
@@ -298,17 +303,12 @@
                     for y in 0...9{
                         var neighborCount = 0
                         var neighborCoordinates = neighbors(x,y)
-                        print ("\(neighbors(x,y))")
                         for q in 0...8{
                             if cellLocal[neighborCoordinates[q].0][neighborCoordinates[q].1] == true{
                                 neighborCount += 1
                             }
                         }
                         
-                        if cellLocal[x][y] == true{
-                            neighborCount -= 1
-                        }
-                        print ("\(neighborCount)")
                         if cellLocal[x][y] == true {
                             if neighborCount < 2 || neighborCount > 3 {
                                 cellFinal [x][y] = false

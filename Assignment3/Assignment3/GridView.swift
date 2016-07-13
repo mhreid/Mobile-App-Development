@@ -146,6 +146,9 @@ import UIKit
                     
                 }
                 
+                if cellLocal[x][y] == .Living || cellLocal[x][y] == .Born{
+                    neighborCount -= 1
+                }
                 if cellLocal[x][y] == .Living || cellLocal[x][y] == .Born {
                     if neighborCount < 2 || neighborCount > 3 {
                         cellFinal [x][y] = .Died
@@ -180,11 +183,7 @@ import UIKit
         }
     }
     
-    //override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-   //     for touch in touches {
-     //       self.processTouch(touch )
-       // }
-    //}
+
     
     func processTouch(touch: UITouch) {
         let squareWidth = self.bounds.width / CGFloat(cols)

@@ -180,11 +180,11 @@ import UIKit
         }
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        for touch in touches {
-            self.processTouch(touch )
-        }
-    }
+    //override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+   //     for touch in touches {
+     //       self.processTouch(touch )
+       // }
+    //}
     
     func processTouch(touch: UITouch) {
         let squareWidth = self.bounds.width / CGFloat(cols)

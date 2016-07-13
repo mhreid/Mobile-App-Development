@@ -109,6 +109,65 @@ import UIKit
         }
     }
     
+    func neighbors(coordinates: (Int,Int)) -> ([(Int, Int)]){
+        var neighborCoordinates = [(Int,Int)]()
+        for x in (-1)...1 {
+            for y in (-1)...1 {
+                var tempCoordinates = (coordinates.0 + x, coordinates.1 + y)
+                    tempCoordinates.0 = tempCoordinates.0 % rows
+                    tempCoordinates.1 = tempCoordinates.1 % cols
+                if tempCoordinates.0 < 0{
+                    tempCoordinates.0 = rows + tempCoordinates.0
+                }
+                if tempCoordinates.1 < 0{
+                    tempCoordinates.1 = cols + tempCoordinates.1
+                }
+                
+                neighborCoordinates += [tempCoordinates]
+            }
+        }
+        return neighborCoordinates
+    }
+    
+    func step() {
+        var cellLocal = grid
+        var cellFinal = grid
+        for x in 0...rows - 1{
+            for y in 0...cols - 1{
+                var neighborCount = 0
+                var neighborCoordinates = neighbors(x,y)
+                for q in 0...8{
+                    switch cellLocal[neighborCoordinates[q].0][neighborCoordinates[q].1]{
+                        case CellState.Living, CellState.Born:
+                        neighborCount += 1
+                        default:
+                        break
+                    }
+                    
+                }
+                
+                if cellLocal[x][y] == .Living || cellLocal[x][y] == .Born {
+                    if neighborCount < 2 || neighborCount > 3 {
+                        cellFinal [x][y] = .Died
+                    } else {
+                        cellFinal[x][y] = .Living
+                    }
+                    
+                } else {
+                    if neighborCount == 3 {
+                        cellFinal [x][y] = .Born
+                    } else {
+                        cellFinal[x][y] = .Empty
+                    }
+                }
+            }
+        }
+        
+        
+        grid = cellFinal
+        self.setNeedsDisplay()
+    }
+    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         for touch in touches {
             self.processTouch(touch )

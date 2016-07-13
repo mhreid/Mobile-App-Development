@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    
+
+    
     @IBOutlet weak var gridView: GridView!
 
     override func viewDidLoad() {
@@ -21,7 +24,11 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    @IBAction func button(sender: AnyObject) {
+        
+        gridView.step()
+    }
+
 
 }
 

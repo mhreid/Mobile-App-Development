@@ -34,13 +34,22 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlj-6N-8CM">
+                                <rect key="frame" x="284" y="525" width="32" height="30"/>
+                                <state key="normal" title="Step"/>
+                                <connections>
+                                    <action selector="button:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e21-de-yLs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.39197480366492143" green="0.39197480366492143" blue="0.39197480366492143" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="So2-UR-be8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="5" id="9aD-YM-5G9"/>
                             <constraint firstItem="So2-UR-be8" firstAttribute="width" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="9:10" id="EPb-D4-AUR"/>
+                            <constraint firstItem="zlj-6N-8CM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Eeo-KX-evD"/>
                             <constraint firstItem="So2-UR-be8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Esz-J3-25e"/>
                             <constraint firstItem="So2-UR-be8" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="8:10" priority="999" id="O5g-mC-06T"/>
+                            <constraint firstItem="zlj-6N-8CM" firstAttribute="top" secondItem="So2-UR-be8" secondAttribute="bottom" constant="20" id="h8R-6f-hT1"/>
                             <constraint firstItem="So2-UR-be8" firstAttribute="height" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="8:10" id="wiX-6f-JgX"/>
                         </constraints>
                     </view>

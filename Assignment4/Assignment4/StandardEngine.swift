@@ -16,41 +16,46 @@ class StandardEngine: EngineProtocol{
     var refreshTimer: NSTimer
     var rows: Int
     var cols: Int
-
     
-    required init(rows: Int, cols: Int, refreshRate: Double, grid: Grid) {
+    
+    required init(rows: Int, cols: Int, refreshRate: Double, grid: GridProtocol) {
         self.rows = rows
         self.cols = cols
         self.refreshRate = refreshRate
         self.delegate = SimulationViewController()
         var refreshTimer:NSTimer?
         var refreshInterval: NSTimeInterval = NSTimeInterval(refreshRate)/*{
-            didSet {
-                if refreshInterval != 0 {
-                    if let refreshTimer = refreshTimer { refreshTimer.invalidate() }
-                    let sel = #selector(Example.timerDidFire(_:))
-                    refreshTimer = NSTimer.scheduledTimerWithTimeInterval(refreshInterval,
-                                                               target: self,
-                                                               selector: sel,
-                                                               userInfo: ["name": "fred"],
-                                                               repeats: true)
-            }
-            else if let refreshTimer = refreshTimer {
-                refreshTimer.invalidate()
-                self.refreshTimer = nil
-            }
-            }*/
-            self.grid = grid
-        }
+         didSet {
+         if refreshInterval != 0 {
+         if let refreshTimer = refreshTimer { refreshTimer.invalidate() }
+         let sel = #selector(Example.timerDidFire(_:))
+         refreshTimer = NSTimer.scheduledTimerWithTimeInterval(refreshInterval,
+         target: self,
+         selector: sel,
+         userInfo: ["name": "fred"],
+         repeats: true)
+         }
+         else if let refreshTimer = refreshTimer {
+         refreshTimer.invalidate()
+         self.refreshTimer = nil
+         }
+         }*/
+        self.grid = grid
+        self.refreshTimer = NSTimer.scheduledTimerWithTimeInterval(refreshInterval,
+                                                                   target: self,
+                                                                   selector: self,
+                                                                   userInfo: ["name": "fred"],
+                                                                   repeats: true)
     }
     
     
-
-
     
-
-func step() -> GridProtocol {
-        var cellLocal = grid
+    
+    
+    
+    
+    func step() -> GridProtocol {
+        var cellLocal: GridProtocol = self.grid
         var cellFinal = grid
         for x in 0...grid.rows - 1{
             for y in 0...grid.cols - 1{
@@ -88,19 +93,19 @@ func step() -> GridProtocol {
         
         
         return cellFinal
+        
+}
 
-    }
-    
-    /*@objc func timerDidFire(timer:NSTimer) {
-        //self.rows += 1
-        Grid(rows: rows, cols: cols, chart: step().grid)
-        let center = NSNotificationCenter.defaultCenter()
-        let n = NSNotification(name: "ExampleNotification",
-                               object: nil,
-                               userInfo: ["name": "fred"])
-        center.postNotification(n)
-        print ("\(timer.userInfo?["name"] ?? "not fred")")
-    }
+/*@objc func timerDidFire(timer:NSTimer) {
+ //self.rows += 1
+ Grid(rows: rows, cols: cols, chart: step().grid)
+ let center = NSNotificationCenter.defaultCenter()
+ let n = NSNotification(name: "ExampleNotification",
+ object: nil,
+ userInfo: ["name": "fred"])
+ center.postNotification(n)
+ print ("\(timer.userInfo?["name"] ?? "not fred")")
+ }
  */
+}
 
-    

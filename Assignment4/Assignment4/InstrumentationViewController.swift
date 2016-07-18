@@ -13,13 +13,13 @@ class InstrumentationViewController: UIViewController {
 
     @IBOutlet weak var refresh: UISlider!{
         didSet{
-            StandardEngine.init(rows: Int(rows.text!)!, cols: Int(cols.text!)!, refreshRate: Double(refresh.value))
+            StandardEngine.init(rows: Int(rows.text!)!, cols: Int(cols.text!)!, refreshRate: Double(refresh.value), grid: Grid(rows: Int(rows.text!)!, cols: Int(cols.text!)!))
         }
     }
     @IBOutlet weak var rows: UITextField!{
         didSet{
             Grid.init(rows: Int(rows.text!)!, cols: Int(cols.text!)!)
-            StandardEngine.init(rows: Int(rows.text!)!, cols: Int(cols.text!)!, refreshRate: Double(refresh.value))
+            StandardEngine.init(rows: Int(rows.text!)!, cols: Int(cols.text!)!, refreshRate: Double(refresh.value), grid: Grid(rows: Int(rows.text!)!, cols: Int(cols.text!)!))
             
         }
     }
@@ -27,7 +27,7 @@ class InstrumentationViewController: UIViewController {
     @IBOutlet weak var cols: UITextField!{
         didSet{
             Grid.init(rows: Int(rows.text!)!, cols: Int(cols.text!)!)
-            StandardEngine.init(rows: Int(rows.text!)!, cols: Int(cols.text!)!, refreshRate: Double(refresh.value))
+            StandardEngine.init(rows: Int(rows.text!)!, cols: Int(cols.text!)!, refreshRate: Double(refresh.value), grid: Grid(rows: Int(rows.text!)!, cols: Int(cols.text!)!))
         }
         
     }

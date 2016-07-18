@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 class StandardEngine: EngineProtocol{
-    static let sharedEngine = StandardEngine(rows: 10, cols: 10, refreshRate: 0)
     var delegate: EngineDelegateProtocol
     var grid: GridProtocol
     var refreshRate: Double
@@ -19,13 +18,13 @@ class StandardEngine: EngineProtocol{
     var cols: Int
 
     
-    required init(rows: Int, cols: Int, refreshRate: Double) {
+    required init(rows: Int, cols: Int, refreshRate: Double, grid: Grid) {
         self.rows = rows
         self.cols = cols
         self.refreshRate = refreshRate
         self.delegate = SimulationViewController()
         var refreshTimer:NSTimer?
-        var refreshInterval: NSTimeInterval = NSTimeInterval(refreshRate){
+        var refreshInterval: NSTimeInterval = NSTimeInterval(refreshRate)/*{
             didSet {
                 if refreshInterval != 0 {
                     if let refreshTimer = refreshTimer { refreshTimer.invalidate() }
@@ -40,7 +39,8 @@ class StandardEngine: EngineProtocol{
                 refreshTimer.invalidate()
                 self.refreshTimer = nil
             }
-            }
+            }*/
+            self.grid = grid
         }
     }
     
@@ -49,13 +49,13 @@ class StandardEngine: EngineProtocol{
 
     
 
-    func step() -> GridProtocol {
+func step() -> GridProtocol {
         var cellLocal = grid
         var cellFinal = grid
-        for x in 0...rows - 1{
-            for y in 0...cols - 1{
+        for x in 0...grid.rows - 1{
+            for y in 0...grid.cols - 1{
                 var neighborCount = 0
-                var neighborCoordinates: [(Int, Int)] = Grid(rows: rows, cols: cols,chart: cellLocal.grid).neighbors(x,y)
+                var neighborCoordinates: [(Int, Int)] = Grid(rows: grid.rows, cols: grid.cols,chart: cellLocal.grid).neighbors(x,y)
                 for q in 0...8{
                     switch cellLocal[neighborCoordinates[q]]{
                     case CellState.Living, CellState.Born:
@@ -91,7 +91,7 @@ class StandardEngine: EngineProtocol{
 
     }
     
-    @objc func timerDidFire(timer:NSTimer) {
+    /*@objc func timerDidFire(timer:NSTimer) {
         //self.rows += 1
         Grid(rows: rows, cols: cols, chart: step().grid)
         let center = NSNotificationCenter.defaultCenter()
@@ -101,6 +101,6 @@ class StandardEngine: EngineProtocol{
         center.postNotification(n)
         print ("\(timer.userInfo?["name"] ?? "not fred")")
     }
+ */
 
     
-}

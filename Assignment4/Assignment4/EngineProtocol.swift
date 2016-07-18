@@ -17,8 +17,7 @@ protocol EngineProtocol {
     var rows: Int {get}
     var cols: Int {get}
     
-    init(rows:Int, cols:Int, refreshRate: Double)
-    //I added the refreshRate parameter so it could access the outlet from the uiview
+    init(rows:Int, cols:Int, refreshRate: Double, grid: GridProtocol)
     
     func step() -> GridProtocol
     

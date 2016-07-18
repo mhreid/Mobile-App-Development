@@ -43,13 +43,22 @@ class StandardEngine: EngineProtocol{
         self.grid = grid
         self.refreshTimer = NSTimer.scheduledTimerWithTimeInterval(refreshInterval,
                                                                    target: self,
-                                                                   selector: self,
+                                                                   selector: #selector(self.timerDidFire(_:)), 
                                                                    userInfo: ["name": "fred"],
                                                                    repeats: true)
     }
     
     
-    
+    @objc func timerDidFire(timer:NSTimer) {
+        self.rows += 1
+        let center = NSNotificationCenter.defaultCenter()
+        let n = NSNotification(name: "ExampleNotification",
+                               object: nil,
+                               userInfo: ["name": "fred"])
+        center.postNotification(n)
+        print ("\(timer.userInfo?["name"] ?? "not fred")")
+    }
+
     
     
     

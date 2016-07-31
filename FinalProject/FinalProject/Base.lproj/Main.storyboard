@@ -50,7 +50,7 @@
                                                     <action selector="rows:" destination="9pv-A4-QxB" eventType="editingChanged" id="fhY-SE-wJp"/>
                                                 </connections>
                                             </textField>
-                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minimumValue="15" maximumValue="40" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="uiZ-zk-SAZ" userLabel="RowsStepper">
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minimumValue="10" maximumValue="40" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="uiZ-zk-SAZ" userLabel="RowsStepper">
                                                 <rect key="frame" x="11" y="61" width="94" height="29"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="94" id="6Ci-ls-Cxu"/>
@@ -82,7 +82,7 @@
                                                     <action selector="cols:" destination="9pv-A4-QxB" eventType="editingChanged" id="Imi-BA-JL0"/>
                                                 </connections>
                                             </textField>
-                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15" minimumValue="15" maximumValue="40" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="iW3-CZ-RRl" userLabel="ColsStepper">
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15" minimumValue="10" maximumValue="40" stepValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="iW3-CZ-RRl" userLabel="ColsStepper">
                                                 <rect key="frame" x="11" y="156" width="94" height="29"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="94" id="9I8-QM-T3T"/>
@@ -156,7 +156,7 @@
                             <constraint firstItem="6GD-dj-ASS" firstAttribute="leading" secondItem="DMX-JH-hFf" secondAttribute="leading" id="tQV-fa-rhQ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Instrumentation" image="Instrumentation" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="colStepper" destination="iW3-CZ-RRl" id="bOM-39-0eY"/>
                         <outlet property="colsField" destination="YGI-n4-aoY" id="tRC-PU-piZ"/>
@@ -226,7 +226,7 @@
                             <constraint firstAttribute="trailing" secondItem="uqh-hV-WX9" secondAttribute="trailing" id="vhK-OM-OzB"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Simulation" image="Simulation" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="grid" destination="Xbl-og-ZOw" id="nq5-NJ-UWa"/>
                     </connections>
@@ -335,7 +335,7 @@
                             <constraint firstItem="wcm-jj-4gz" firstAttribute="leading" secondItem="BVa-SN-3Yo" secondAttribute="leading" id="rxG-db-asS"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="LiQ-oR-vL2"/>
+                    <tabBarItem key="tabBarItem" title="Statistics" image="Statistics" id="LiQ-oR-vL2"/>
                     <connections>
                         <outlet property="AliveLabel" destination="zai-dV-rne" id="pcF-vo-b3R"/>
                         <outlet property="BornLabel" destination="zKi-ja-Hgl" id="ZPZ-P4-Bsm"/>
@@ -349,7 +349,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="Instrumentation" width="612" height="792"/>
+        <image name="Simulation" width="612" height="792"/>
+        <image name="Statistics" width="612" height="792"/>
     </resources>
 </document>

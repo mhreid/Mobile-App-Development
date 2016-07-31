@@ -27,9 +27,10 @@ class GridView: UIView {
         }
     }
     var aliveColor = UIColor(red: 0, green: 0.8, blue: 0.1, alpha: 1)
-    var bornColor = UIColor(red: 0, green: 0.8, blue: 0.1, alpha: 0.6)
+    var bornColor = UIColor(red: 0, green: 0.6, blue: 0.05, alpha: 0.4)
     var emptyColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
     var diedColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 0.8)
+    //I took some creative liberties with the colors, not a mistake
     var grid: GridProtocol = Grid(rows: 20, cols: 20){
         didSet{
             setNeedsDisplay()

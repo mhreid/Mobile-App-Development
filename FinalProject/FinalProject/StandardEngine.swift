@@ -18,7 +18,12 @@ class StandardEngine: EngineProtocol{
             GridView.gridView.grid = self.grid
         }
     }
-    var refreshRate:  Double
+    var refreshRate:  Double{
+        didSet{
+            refreshTimer?.invalidate()
+            refreshTimer = NSTimer.scheduledTimerWithTimeInterval(refreshRate, target: self, selector: #selector(stepHelper), userInfo: nil, repeats: on)
+        }
+    }
     var refreshTimer: NSTimer?
     var rows: Int = 20 {
         didSet {
@@ -33,16 +38,23 @@ class StandardEngine: EngineProtocol{
             if let delegate = delegate { delegate.engineDidUpdate(grid) }
         }
     }
+    var on: Bool{
+        didSet{
+            refreshTimer?.invalidate()
+            refreshTimer = NSTimer.scheduledTimerWithTimeInterval(refreshRate, target: self, selector: #selector(stepHelper), userInfo: nil, repeats: on)
+        }
+    }
     
     weak var delegate: EngineDelegate?
     
     required init(rows: Int, cols: Int) {
         self.rows = rows
         self.cols = cols
-        refreshRate = 4
+        refreshRate = 1
+        on = false
         self.grid = Grid(rows: rows,cols: cols)
         refreshTimer?.invalidate()
-        refreshTimer = NSTimer.scheduledTimerWithTimeInterval(refreshRate, target: self, selector: #selector(stepHelper), userInfo: nil, repeats: false)
+        refreshTimer = NSTimer.scheduledTimerWithTimeInterval(0, target: self, selector: #selector(stepHelper), userInfo: nil, repeats: false)
     }
     
     @objc func stepHelper(){

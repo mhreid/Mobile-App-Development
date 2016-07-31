@@ -23,8 +23,8 @@ enum CellState {
     
     func toggle() -> CellState{
         switch self {
-        case .Alive, .Born: return .Died
-        case .Died, .Empty: return .Born
+        case .Alive, .Born: return .Empty
+        case .Died, .Empty: return .Alive
         }
     }
 }

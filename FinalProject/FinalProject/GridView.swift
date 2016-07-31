@@ -26,7 +26,10 @@ class GridView: UIView {
             setNeedsDisplay()
         }
     }
-    var color = UIColor.blackColor()
+    var aliveColor = UIColor(red: 0, green: 0.8, blue: 0.1, alpha: 1)
+    var bornColor = UIColor(red: 0, green: 0.8, blue: 0.1, alpha: 0.6)
+    var emptyColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+    var diedColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 0.8)
     var grid: GridProtocol = Grid(rows: 20, cols: 20){
         didSet{
             setNeedsDisplay()
@@ -38,8 +41,8 @@ class GridView: UIView {
     
     override func drawRect(rect: CGRect) {
         
-        cols = grid.cols
-        rows = grid.rows
+        cols = StandardEngine.sharedInstance.grid.cols
+        rows = StandardEngine.sharedInstance.grid.rows
         super.drawRect(rect)
         let width = self.bounds.width
         let circleWidth: CGFloat = width / CGFloat(maxDimension)
@@ -48,10 +51,11 @@ class GridView: UIView {
         let xIndent: CGFloat = CGFloat((width - CGFloat(rows) * circleWidth)/2)
         for x in 0...cols - 1{
             for y in 0...rows - 1{
-                if grid.cells[rows * x + y].1 == CellState.Born || grid.cells[rows * x + y].1 == CellState.Alive{
-                    UIColor.greenColor().setFill()
-                } else {
-                    UIColor.blackColor().setFill()
+                switch StandardEngine.sharedInstance.grid.cells[rows * x + y].1{
+                case .Alive: aliveColor.setFill()
+                case .Empty: emptyColor.setFill()
+                case .Born: bornColor.setFill()
+                default: diedColor.setFill()
                 }
                 let circle = UIBezierPath(ovalInRect: CGRectMake(yIndent + CGFloat(x) * circleWidth, xIndent + CGFloat(y) * circleWidth, circleWidth, circleWidth))
                 circle.fill()
@@ -87,14 +91,9 @@ class GridView: UIView {
         let newYIndent = Int(yIndent / circleWidth)
         let gridY : Int = Int(y / circleWidth) - newYIndent
 
-        
-        
-        //
-        //
-        //
+
         if(gridX < cols && gridX >= 0 && gridY < cols && gridY >= 0){
-            //grid.cells[cols * gridX + gridY].1 = grid.cells[cols * gridX + gridY].1.toggle()
-            StandardEngine.sharedInstance.grid.cells[rows * gridX + gridY].1 = CellState.Born
+            StandardEngine.sharedInstance.grid.cells[rows * gridX + gridY].1 = StandardEngine.sharedInstance.grid.cells[rows * gridX + gridY].1.toggle()
         }
 
         self.setNeedsDisplay()

@@ -47,8 +47,6 @@ struct Grid: GridProtocol{
     }
     
     func livingNeighbors(pos: Position) -> Int {
-        var temp: CellState = StandardEngine.sharedInstance.grid[pos.0, pos.1]
-       print(temp)
         return neighbors(pos).reduce(0) {
                 StandardEngine.sharedInstance.grid[$1.row,$1.col].isLiving() ? $0 + 1 : $0
         }

@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Instrumentation-->
@@ -136,12 +137,44 @@
                                             </switch>
                                         </subviews>
                                     </stackView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sIg-CE-gCs">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="emu-w9-52j" firstAttribute="centerX" secondItem="6GD-dj-ASS" secondAttribute="centerX" id="1TA-gn-pIb"/>
-                                    <constraint firstItem="emu-w9-52j" firstAttribute="centerY" secondItem="6GD-dj-ASS" secondAttribute="centerY" id="EPq-ca-T39"/>
+                                    <constraint firstAttribute="trailing" secondItem="sIg-CE-gCs" secondAttribute="trailing" constant="10" id="Qqc-KY-Oaw"/>
+                                    <constraint firstItem="sIg-CE-gCs" firstAttribute="leading" secondItem="6GD-dj-ASS" secondAttribute="leading" constant="10" id="VUt-G5-ekz"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="sIg-CE-gCs" secondAttribute="bottom" constant="30" id="duW-Qm-z60"/>
+                                    <constraint firstItem="sIg-CE-gCs" firstAttribute="top" secondItem="emu-w9-52j" secondAttribute="bottom" constant="30" id="k3V-NN-wIA"/>
+                                    <constraint firstItem="emu-w9-52j" firstAttribute="top" secondItem="6GD-dj-ASS" secondAttribute="top" constant="30" id="w6Z-Pm-EPi"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="sIg-CE-gCs"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="w6Z-Pm-EPi"/>
+                                        <exclude reference="Qqc-KY-Oaw"/>
+                                        <exclude reference="VUt-G5-ekz"/>
+                                        <exclude reference="duW-Qm-z60"/>
+                                        <exclude reference="k3V-NN-wIA"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="sIg-CE-gCs"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="w6Z-Pm-EPi"/>
+                                        <include reference="Qqc-KY-Oaw"/>
+                                        <include reference="VUt-G5-ekz"/>
+                                        <include reference="duW-Qm-z60"/>
+                                        <include reference="k3V-NN-wIA"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

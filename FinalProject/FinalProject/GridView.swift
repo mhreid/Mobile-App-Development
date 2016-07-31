@@ -36,7 +36,7 @@ class GridView: UIView {
             setNeedsDisplay()
         }
     }
-    var pointsSet: [Cell] {return StandardEngine.sharedInstance.grid.cells.filter{StandardEngine.sharedInstance.g1rid.cells[$0].isLiving()}}
+    var pointsSet: [Cell] {return StandardEngine.sharedInstance.grid.cells.filter{$0.1.isLiving()}}
     var points: [(Int, Int)] = []{
         didSet{
             StandardEngine.sharedInstance.grid.cells = (0..<StandardEngine.sharedInstance.grid.rows*StandardEngine.sharedInstance.grid.cols).map {

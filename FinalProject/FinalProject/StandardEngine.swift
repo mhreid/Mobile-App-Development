@@ -20,7 +20,7 @@ class StandardEngine: EngineProtocol{
         didSet {
             grid = Grid(rows: self.rows, cols:  self.cols)
             if let delegate = delegate { delegate.engineDidUpdate(grid) }
-            print("didSet")
+            //print("didSet")
         }
     }
     
@@ -28,7 +28,7 @@ class StandardEngine: EngineProtocol{
         didSet {
             grid = Grid(rows: self.rows, cols: self.cols)
             if let delegate = delegate { delegate.engineDidUpdate(grid) }
-            print("didSEt")
+           // print("didSEt")
         }
     }
     
@@ -49,10 +49,10 @@ class StandardEngine: EngineProtocol{
 
     
     func step() -> GridProtocol {
-        print("step")
+        //print("step")
         var newGrid = Grid(rows: rows, cols: cols)
         newGrid.cells = grid.cells.map {
-            print("\(grid.livingNeighbors($0.position))")
+            //print("\(grid.livingNeighbors($0.position))")
             switch grid.livingNeighbors($0.position) {
             case 2 where $0.state.isLiving(),
             3 where $0.state.isLiving():  return Cell($0.position, .Alive)

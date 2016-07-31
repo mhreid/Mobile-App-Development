@@ -94,7 +94,7 @@ class GridView: UIView {
         //
         if(gridX < cols && gridX >= 0 && gridY < cols && gridY >= 0){
             //grid.cells[cols * gridX + gridY].1 = grid.cells[cols * gridX + gridY].1.toggle()
-            grid.cells[rows * gridX + gridY].1 = CellState.Born
+            StandardEngine.sharedInstance.grid.cells[rows * gridX + gridY].1 = CellState.Born
             print("toggled \(grid.cells[rows * gridX + gridY].1)")
         }
         //let rect = CGRectMake(CGFloat(gridX) * squareWidth, CGFloat(gridY) * squareWidth, squareWidth, squareHeight)

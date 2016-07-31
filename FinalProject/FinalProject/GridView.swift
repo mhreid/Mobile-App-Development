@@ -16,7 +16,7 @@ class GridView: UIView {
     
     let maxDimension = 40
 
-    var cols: Int = 40{
+    var cols: Int = 20{
         didSet{
             setNeedsDisplay()
         }
@@ -27,7 +27,7 @@ class GridView: UIView {
         }
     }
     var color = UIColor.blackColor()
-    var grid: GridProtocol = Grid(rows: 20, cols: 40){
+    var grid: GridProtocol = Grid(rows: 20, cols: 20){
         didSet{
             setNeedsDisplay()
         }
@@ -95,10 +95,8 @@ class GridView: UIView {
         if(gridX < cols && gridX >= 0 && gridY < cols && gridY >= 0){
             //grid.cells[cols * gridX + gridY].1 = grid.cells[cols * gridX + gridY].1.toggle()
             StandardEngine.sharedInstance.grid.cells[rows * gridX + gridY].1 = CellState.Born
-            print("toggled \(grid.cells[rows * gridX + gridY].1)")
         }
-        //let rect = CGRectMake(CGFloat(gridX) * squareWidth, CGFloat(gridY) * squareWidth, squareWidth, squareHeight)
-        //self.setNeedsDisplayInRect(rect)
+
         self.setNeedsDisplay()
     }
 

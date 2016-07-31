@@ -36,8 +36,25 @@ class GridView: UIView {
             setNeedsDisplay()
         }
     }
-    
+    var pointsSet: [Cell] {return StandardEngine.sharedInstance.grid.cells.filter{StandardEngine.sharedInstance.g1rid.cells[$0].isLiving()}}
+    var points: [(Int, Int)] = []{
+        didSet{
+            StandardEngine.sharedInstance.grid.cells = (0..<StandardEngine.sharedInstance.grid.rows*StandardEngine.sharedInstance.grid.cols).map {
+                let pos = Position($0/StandardEngine.sharedInstance.grid.cols, $0%StandardEngine.sharedInstance.grid.cols)
+                return Cell(pos, CellState.Empty)
+            }
+            points.map {
+                return StandardEngine.sharedInstance.grid.cells[$0.0 * StandardEngine.sharedInstance.grid.rows + $0.1].1 = CellState.Alive
+                
+            }
+            
+            
+        }
+
+
+    }
     static var gridView :GridView = GridView()
+    
     
     
     override func drawRect(rect: CGRect) {

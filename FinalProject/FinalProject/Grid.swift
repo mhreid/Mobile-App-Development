@@ -16,6 +16,8 @@ struct Grid: GridProtocol{
     var rows: Int
     var cols: Int
     var cells: [Cell]
+    var living: Int { return cells.reduce(0) { return  $1.state.isLiving() ?  $0 + 1 : $0 } }
+    var dead:   Int { return cells.reduce(0) { return !$1.state.isLiving() ?  $0 + 1 : $0 } }
     var alive:  Int { return cells.reduce(0) { return  $1.state == CellState.Alive  ?  $0 + 1 : $0 } }
     var born:   Int { return cells.reduce(0) { return  $1.state == CellState.Born   ?  $0 + 1 : $0 } }
     var died:   Int { return cells.reduce(0) { return  $1.state == CellState.Died   ?  $0 + 1 : $0 } }

@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		755E03151D4ADB5E00AE65D6 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755E03141D4ADB5E00AE65D6 /* GridView.swift */; };
 		755E03171D4AE07400AE65D6 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755E03161D4AE07400AE65D6 /* StatisticsViewController.swift */; };
+		75690FD01D4F9D91009FD2E6 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75690FCF1D4F9D91009FD2E6 /* Fetcher.swift */; };
 		757072D51D4C26DC00132A3A /* GridProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757072D41D4C26DC00132A3A /* GridProtocol.swift */; };
 		757072D71D4C282100132A3A /* CellState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757072D61D4C282100132A3A /* CellState.swift */; };
 		757072D91D4C286D00132A3A /* EngineDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757072D81D4C286D00132A3A /* EngineDelegate.swift */; };
 		757072DB1D4C28E800132A3A /* EngineProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757072DA1D4C28E800132A3A /* EngineProtocol.swift */; };
 		757072DD1D4C2A1000132A3A /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757072DC1D4C2A1000132A3A /* Grid.swift */; };
 		757072DF1D4C310600132A3A /* StandardEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757072DE1D4C310600132A3A /* StandardEngine.swift */; };
+		757072E31D4E864800132A3A /* ConfigCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757072E21D4E864800132A3A /* ConfigCell.swift */; };
 		75727EF91D4AD53500845572 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75727EF81D4AD53500845572 /* AppDelegate.swift */; };
 		75727EFB1D4AD53500845572 /* InstrumentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75727EFA1D4AD53500845572 /* InstrumentationViewController.swift */; };
 		75727EFD1D4AD53500845572 /* SimulationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75727EFC1D4AD53500845572 /* SimulationViewController.swift */; };
@@ -26,12 +28,14 @@
 /* Begin PBXFileReference section */
 		755E03141D4ADB5E00AE65D6 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		755E03161D4AE07400AE65D6 /* StatisticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		75690FCF1D4F9D91009FD2E6 /* Fetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
 		757072D41D4C26DC00132A3A /* GridProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridProtocol.swift; sourceTree = "<group>"; };
 		757072D61D4C282100132A3A /* CellState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellState.swift; sourceTree = "<group>"; };
 		757072D81D4C286D00132A3A /* EngineDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EngineDelegate.swift; sourceTree = "<group>"; };
 		757072DA1D4C28E800132A3A /* EngineProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EngineProtocol.swift; sourceTree = "<group>"; };
 		757072DC1D4C2A1000132A3A /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		757072DE1D4C310600132A3A /* StandardEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardEngine.swift; sourceTree = "<group>"; };
+		757072E21D4E864800132A3A /* ConfigCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigCell.swift; sourceTree = "<group>"; };
 		75727EF51D4AD53400845572 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75727EF81D4AD53500845572 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75727EFA1D4AD53500845572 /* InstrumentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentationViewController.swift; sourceTree = "<group>"; };
@@ -78,10 +82,12 @@
 				755E03141D4ADB5E00AE65D6 /* GridView.swift */,
 				757072D41D4C26DC00132A3A /* GridProtocol.swift */,
 				757072D81D4C286D00132A3A /* EngineDelegate.swift */,
+				757072E21D4E864800132A3A /* ConfigCell.swift */,
 				757072D61D4C282100132A3A /* CellState.swift */,
 				757072DC1D4C2A1000132A3A /* Grid.swift */,
 				75727EFA1D4AD53500845572 /* InstrumentationViewController.swift */,
 				75727EFC1D4AD53500845572 /* SimulationViewController.swift */,
+				75690FCF1D4F9D91009FD2E6 /* Fetcher.swift */,
 				75727EFE1D4AD53500845572 /* Main.storyboard */,
 				755E03161D4AE07400AE65D6 /* StatisticsViewController.swift */,
 				75727F011D4AD53500845572 /* Assets.xcassets */,
@@ -171,7 +177,9 @@
 				755E03171D4AE07400AE65D6 /* StatisticsViewController.swift in Sources */,
 				75727EF91D4AD53500845572 /* AppDelegate.swift in Sources */,
 				755E03151D4ADB5E00AE65D6 /* GridView.swift in Sources */,
+				757072E31D4E864800132A3A /* ConfigCell.swift in Sources */,
 				75727EFB1D4AD53500845572 /* InstrumentationViewController.swift in Sources */,
+				75690FD01D4F9D91009FD2E6 /* Fetcher.swift in Sources */,
 				757072DB1D4C28E800132A3A /* EngineProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

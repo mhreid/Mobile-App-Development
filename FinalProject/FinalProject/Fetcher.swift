@@ -37,6 +37,7 @@ class Fetcher: NSObject, NSURLSessionDelegate, NSURLSessionTaskDelegate {
     }
     
     typealias JSONRequestCompletionHandler = (json:NSObject?, message: String?) -> Void
+    
     func requestJSON(url: NSURL, completion: JSONRequestCompletionHandler) {
         request(url) { (data, message) in
             var json: NSObject?
@@ -48,8 +49,9 @@ class Fetcher: NSObject, NSURLSessionDelegate, NSURLSessionTaskDelegate {
             completion(json: json, message: message)
         }
     }
-    
-    
+
+
+ 
     func parseResponse(response: NSURLResponse?, error: NSError?) -> String? {
         if let statusCode = (response as? NSHTTPURLResponse)?.statusCode {
             if statusCode == 200 {
@@ -65,6 +67,7 @@ class Fetcher: NSObject, NSURLSessionDelegate, NSURLSessionTaskDelegate {
             }
             else {
                 return "OS Error: network error was empty"
+                //this is where the good stuff goes
             }
         }
     }
@@ -81,7 +84,9 @@ extension Fetcher {
         
     }
     
-    func URLSession(session: NSURLSession, didReceiveChallenge challenge: NSURLAuthenticationChallenge, completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential?) -> Void) {
-        
+    func URLSession(session: NSURLSession,
+                    didReceiveChallenge challenge: NSURLAuthenticationChallenge,
+                                        completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential?) -> Void) {
+        completionHandler(.PerformDefaultHandling, nil)
     }
 }

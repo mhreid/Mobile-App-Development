@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		750EF3081D511CFC006A1D49 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EF3071D511CFC006A1D49 /* TableViewController.swift */; };
 		755E03151D4ADB5E00AE65D6 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755E03141D4ADB5E00AE65D6 /* GridView.swift */; };
 		755E03171D4AE07400AE65D6 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755E03161D4AE07400AE65D6 /* StatisticsViewController.swift */; };
 		75690FD01D4F9D91009FD2E6 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75690FCF1D4F9D91009FD2E6 /* Fetcher.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		750EF3071D511CFC006A1D49 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		755E03141D4ADB5E00AE65D6 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		755E03161D4AE07400AE65D6 /* StatisticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		75690FCF1D4F9D91009FD2E6 /* Fetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				757072DC1D4C2A1000132A3A /* Grid.swift */,
 				75727EFA1D4AD53500845572 /* InstrumentationViewController.swift */,
 				75727EFC1D4AD53500845572 /* SimulationViewController.swift */,
+				750EF3071D511CFC006A1D49 /* TableViewController.swift */,
 				75690FCF1D4F9D91009FD2E6 /* Fetcher.swift */,
 				75727EFE1D4AD53500845572 /* Main.storyboard */,
 				755E03161D4AE07400AE65D6 /* StatisticsViewController.swift */,
@@ -169,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				757072DF1D4C310600132A3A /* StandardEngine.swift in Sources */,
+				750EF3081D511CFC006A1D49 /* TableViewController.swift in Sources */,
 				757072D91D4C286D00132A3A /* EngineDelegate.swift in Sources */,
 				75727EFD1D4AD53500845572 /* SimulationViewController.swift in Sources */,
 				757072D71D4C282100132A3A /* CellState.swift in Sources */,
@@ -299,6 +303,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Harvard.FinalProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -310,6 +315,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Harvard.FinalProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

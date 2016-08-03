@@ -9,5 +9,10 @@
 import UIKit
 
 class ConfigCell: UITableViewCell {
+    //help with tableview from https://developer.apple.com/library/ios/referencelibrary/GettingStarted/DevelopiOSAppsSwift/Lesson7.html
+    
+    @IBOutlet weak var name: UILabel!
+    
+
     
 }

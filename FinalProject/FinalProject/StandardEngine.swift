@@ -12,7 +12,7 @@ class StandardEngine: EngineProtocol{
     
     private static var _sharedInstance: StandardEngine = StandardEngine(rows: 20, cols: 20)
     static var sharedInstance: StandardEngine { get { return _sharedInstance } }
-    
+        
     var grid: GridProtocol{
         didSet{
             GridView.gridView.grid = self.grid
@@ -78,7 +78,5 @@ class StandardEngine: EngineProtocol{
         if let delegate = delegate{ delegate.engineDidUpdate(grid) }
         return grid
     }
-
     
-
 }

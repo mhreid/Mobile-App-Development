@@ -13,9 +13,9 @@ class GridView: UIView {
     
     typealias Position = (row: Int, col: Int)
     typealias Cell = (position: Position, state: CellState)
+        
+    let maxDimension = 60
     
-    let maxDimension = 40
-
     var cols: Int = 20{
         didSet{
             setNeedsDisplay()
@@ -30,7 +30,8 @@ class GridView: UIView {
     var bornColor = UIColor(red: 0, green: 0.6, blue: 0.05, alpha: 0.4)
     var emptyColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
     var diedColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 0.8)
-    //I took some creative liberties with the colors, not a mistake
+
+    
     var grid: GridProtocol = Grid(rows: 20, cols: 20){
         didSet{
             setNeedsDisplay()
@@ -43,7 +44,7 @@ class GridView: UIView {
                 let pos = Position($0/StandardEngine.sharedInstance.grid.cols, $0%StandardEngine.sharedInstance.grid.cols)
                 return Cell(pos, CellState.Empty)
             }
-            points.map {
+            _ = points.map{
                 return StandardEngine.sharedInstance.grid.cells[$0.0 * StandardEngine.sharedInstance.grid.rows + $0.1].1 = CellState.Alive
                 
             }

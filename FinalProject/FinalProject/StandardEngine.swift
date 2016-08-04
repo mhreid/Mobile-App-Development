@@ -9,10 +9,14 @@
 import Foundation
 
 class StandardEngine: EngineProtocol{
+    typealias Position = (row: Int, col: Int)
+    typealias Cell = (position: Position, state: CellState)
     
     private static var _sharedInstance: StandardEngine = StandardEngine(rows: 20, cols: 20)
     static var sharedInstance: StandardEngine { get { return _sharedInstance } }
-        
+    
+    var mutate: Bool = false
+    
     var grid: GridProtocol{
         didSet{
             GridView.gridView.grid = self.grid
@@ -54,7 +58,7 @@ class StandardEngine: EngineProtocol{
         on = false
         self.grid = Grid(rows: rows,cols: cols)
         refreshTimer?.invalidate()
-        refreshTimer = NSTimer.scheduledTimerWithTimeInterval(0, target: self, selector: #selector(stepHelper), userInfo: nil, repeats: false)
+        //refreshTimer = NSTimer.scheduledTimerWithTimeInterval(0, target: self, selector: #selector(stepHelper), userInfo: nil, repeats: false)
     }
     
     @objc func stepHelper(){
@@ -74,6 +78,16 @@ class StandardEngine: EngineProtocol{
             default:                           return Cell($0.position, .Empty)
             }
         }
+        if mutate {
+            if arc4random_uniform(5) == 1{
+                print("mutating")
+                let y = arc4random_uniform(UInt32(rows))
+                let x = arc4random_uniform(UInt32(cols))
+                
+                newGrid.cells[Int(x) * rows + Int(y)] = ((Int(x), Int(y)) , CellState.Alive)
+            }
+        }
+
         grid = newGrid
         if let delegate = delegate{ delegate.engineDidUpdate(grid) }
         return grid

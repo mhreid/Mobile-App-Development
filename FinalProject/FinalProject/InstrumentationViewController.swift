@@ -80,10 +80,10 @@ class InstrumentationViewController: UIViewController {
                 let op = NSBlockOperation {
                     if let json = json {
                         print(json.description)
-                        TableViewController.tableView.url = JSONurl
                     }
                     else if let message = message {
                         print(message)
+
                     }
                 }
                 NSOperationQueue.mainQueue().addOperation(op)

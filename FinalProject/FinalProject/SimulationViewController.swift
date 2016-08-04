@@ -14,9 +14,21 @@ class SimulationViewController: UIViewController, EngineDelegate {
     @IBAction func step(sender: AnyObject) {
         StandardEngine.sharedInstance.step()
     }
+    @IBOutlet weak var reset: UIButton!
+    
+    @IBAction func reset(sender: AnyObject) {
+        GridView.gridView.points = []
+        StandardEngine.sharedInstance.step()
+    }
+    @IBOutlet weak var mutate: UISwitch!
+    
+    @IBAction func mutate(sender: AnyObject) {
+        StandardEngine.sharedInstance.mutate = mutate.on
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        GridView.gridView.points = [(0,0), (0,1)]
         StandardEngine.sharedInstance.delegate = self
     }
 

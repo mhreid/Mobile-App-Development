@@ -12,8 +12,9 @@ class GridEditorController: UIViewController{
     static let gridEditor: GridEditorController = GridEditorController()
     @IBOutlet weak var saveName: UITextField!
     @IBAction func go(sender: AnyObject) {
+        grid.setNeedsDisplay()
     }
-    @IBOutlet weak var grid: GridView!
+    @IBOutlet weak var grid: EditGridView!
     
 
 }

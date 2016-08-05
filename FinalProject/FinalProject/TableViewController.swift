@@ -20,17 +20,16 @@ class TableViewController: UITableViewController {
     //help from http://www.codingexplorer.com/segue-uitableviewcell-taps-swift/
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if  segue.identifier == "sendToGridSegue",
-            let destination = segue.destinationViewController as? SimulationViewController,
-            tableRow = tableView.indexPathForSelectedRow?.row
+            let tableRow = tableView.indexPathForSelectedRow?.row
         {
             var newPoints: [(Int, Int)] = []
             _ = tableContents[names[tableRow]]!.reduce(0){
-                newPoints.append($0.1[0], $0.1[1])
+                newPoints.append(($0.1[0], $0.1[1]))
                 return 0
             }
-            GridEditorController.gridEditor.grid.points = newPoints
-            
+            GridEditorController.gridEditor.grid.points = []
         }
+
     }
 
     
@@ -54,7 +53,7 @@ class TableViewController: UITableViewController {
                 }
                 NSOperationQueue.mainQueue().addOperation(op)
             }
-            print(self.names)
+            
 
         }
         

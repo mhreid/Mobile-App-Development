@@ -9,19 +9,19 @@
 
 import UIKit
 
-class GridView: UIView {
+class EditGridView: UIView {
     
     typealias Position = (row: Int, col: Int)
     typealias Cell = (position: Position, state: CellState)
-        
+    
     let maxDimension = 60
     
-    var cols: Int = 20{
+    var cols: Int = 60{
         didSet{
             setNeedsDisplay()
         }
     }
-    var rows: Int = 20{
+    var rows: Int = 60{
         didSet{
             setNeedsDisplay()
         }
@@ -30,40 +30,37 @@ class GridView: UIView {
     var bornColor = UIColor(red: 0, green: 0.6, blue: 0.05, alpha: 0.4)
     var emptyColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
     var diedColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 0.8)
-
     
-    var grid: GridProtocol = Grid(rows: 20, cols: 20){
+    
+    var grid: GridProtocol = Grid(rows: 60, cols: 60){
         didSet{
             setNeedsDisplay()
         }
     }
-    var pointsSet: [Cell] {return StandardEngine.sharedInstance.grid.cells.filter{$0.1.isLiving()}}
+    var pointsSet: [Cell] {return grid.cells.filter{$0.1.isLiving()}}
     var points: [(Int, Int)] = []{
         didSet{
-            StandardEngine.sharedInstance.grid.cells = (0..<StandardEngine.sharedInstance.grid.rows*StandardEngine.sharedInstance.grid.cols).map {
-                let pos = Position($0/StandardEngine.sharedInstance.grid.cols, $0%StandardEngine.sharedInstance.grid.cols)
+            grid.cells = (0..<rows*cols).map {
+                let pos = Position($0/cols, $0%cols)
                 return Cell(pos, CellState.Empty)
             }
-            StandardEngine.sharedInstance.grid = Grid(rows: 60, cols: 60)
-            StandardEngine.sharedInstance.rows = 60
-            StandardEngine.sharedInstance.cols = 60
-            points.map{
-                return StandardEngine.sharedInstance.grid.cells[$0.0 * StandardEngine.sharedInstance.grid.rows + $0.1].1 = CellState.Alive
+            _ = points.map{
+                return self.grid.cells[$0.0 * grid.rows + $0.1].1 = CellState.Alive
                 
             }
-            
+            setNeedsDisplay()
             
         }
-
-
+        
+        
     }
     
     
     
     override func drawRect(rect: CGRect) {
         
-        cols = StandardEngine.sharedInstance.grid.cols
-        rows = StandardEngine.sharedInstance.grid.rows
+        cols = grid.cols
+        rows = grid.rows
         super.drawRect(rect)
         let width = self.bounds.width
         let circleWidth: CGFloat = width / CGFloat(maxDimension)
@@ -72,7 +69,7 @@ class GridView: UIView {
         let xIndent: CGFloat = CGFloat((width - CGFloat(rows) * circleWidth)/2)
         for x in 0...cols - 1{
             for y in 0...rows - 1{
-                switch StandardEngine.sharedInstance.grid.cells[rows * x + y].1{
+                switch grid.cells[rows * x + y].1{
                 case .Alive: aliveColor.setFill()
                 case .Empty: emptyColor.setFill()
                 case .Born: bornColor.setFill()
@@ -111,14 +108,14 @@ class GridView: UIView {
         let gridX : Int = Int(x / circleWidth) - Int(xIndent / circleWidth)
         let newYIndent = Int(yIndent / circleWidth)
         let gridY : Int = Int(y / circleWidth) - newYIndent
-
-
+        
+        
         if(gridX < cols && gridX >= 0 && gridY < cols && gridY >= 0){
-            StandardEngine.sharedInstance.grid.cells[rows * gridX + gridY].1 = StandardEngine.sharedInstance.grid.cells[rows * gridX + gridY].1.toggle()
+            grid.cells[rows * gridX + gridY].1 = grid.cells[rows * gridX + gridY].1.toggle()
         }
-
+        
         self.setNeedsDisplay()
     }
-
+    
     
 }

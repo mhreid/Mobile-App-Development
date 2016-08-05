@@ -9,7 +9,7 @@
 import UIKit
 
 class SimulationViewController: UIViewController, EngineDelegate {
-
+    static let simulation: SimulationViewController = SimulationViewController()
     @IBOutlet weak var grid: GridView!
     @IBAction func step(sender: AnyObject) {
         StandardEngine.sharedInstance.step()
@@ -17,7 +17,7 @@ class SimulationViewController: UIViewController, EngineDelegate {
     @IBOutlet weak var reset: UIButton!
     
     @IBAction func reset(sender: AnyObject) {
-        GridView.gridView.points = []
+        StandardEngine.sharedInstance.gridView.points = []
         StandardEngine.sharedInstance.step()
     }
     @IBOutlet weak var mutate: UISwitch!
@@ -28,7 +28,6 @@ class SimulationViewController: UIViewController, EngineDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        GridView.gridView.points = [(0,0), (0,1)]
         StandardEngine.sharedInstance.delegate = self
     }
 

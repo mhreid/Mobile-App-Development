@@ -9,7 +9,7 @@
 import UIKit
 
 class TableViewController: UITableViewController {
-    var names: Array<String> = ["ha", "ha"]
+    var names: Array<String> = []
     var tableContents: Dictionary<String, [[Int]]> = [:]
     static let tableView = TableViewController()
     override func viewDidLoad() {
@@ -24,12 +24,11 @@ class TableViewController: UITableViewController {
             tableRow = tableView.indexPathForSelectedRow?.row
         {
             var newPoints: [(Int, Int)] = []
-            _ = tableContents.values.reduce(0){
-                newPoints.append(($0.1[0][1], $0.1[1][1]))
+            _ = tableContents[names[tableRow]]!.reduce(0){
+                newPoints.append($0.1[0], $0.1[1])
                 return 0
             }
-            GridView.gridView.points = newPoints
-            GridView.gridView.setNeedsDisplay()
+            GridEditorController.gridEditor.grid.points = newPoints
             
         }
     }

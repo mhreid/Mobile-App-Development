@@ -9,9 +9,10 @@
 import UIKit
 
 class InstrumentationViewController: UIViewController {
-    let maxDimension = 40
-    let minDimension = 15
+    let maxDimension = 60
+    let minDimension = 10
     let fetcher: Fetcher = Fetcher()
+    static let instrumentation: InstrumentationViewController = InstrumentationViewController()
     @IBOutlet weak var rowsField: UITextField!
     @IBAction func rows(sender: AnyObject) {
         let temp: Int? = (rowsField.text! as NSString).integerValue

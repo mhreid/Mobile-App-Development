@@ -44,17 +44,19 @@ class GridView: UIView {
                 let pos = Position($0/StandardEngine.sharedInstance.grid.cols, $0%StandardEngine.sharedInstance.grid.cols)
                 return Cell(pos, CellState.Empty)
             }
-            _ = points.map{
+            StandardEngine.sharedInstance.grid = Grid(rows: 60, cols: 60)
+            StandardEngine.sharedInstance.rows = 60
+            StandardEngine.sharedInstance.cols = 60
+            points.map{
                 return StandardEngine.sharedInstance.grid.cells[$0.0 * StandardEngine.sharedInstance.grid.rows + $0.1].1 = CellState.Alive
                 
             }
-            
+            setNeedsDisplay()
             
         }
 
 
     }
-    static var gridView :GridView = GridView()
     
     
     

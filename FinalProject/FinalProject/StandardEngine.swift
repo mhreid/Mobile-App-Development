@@ -16,10 +16,10 @@ class StandardEngine: EngineProtocol{
     static var sharedInstance: StandardEngine { get { return _sharedInstance } }
     
     var mutate: Bool = false
-    
+    var gridView: GridView = GridView()
     var grid: GridProtocol{
         didSet{
-            GridView.gridView.grid = self.grid
+            self.gridView.grid = self.grid
         }
     }
     var refreshRate:  Double{

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		750EF3081D511CFC006A1D49 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EF3071D511CFC006A1D49 /* TableViewController.swift */; };
+		750EF30A1D54057C006A1D49 /* GridEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EF3091D54057C006A1D49 /* GridEditorController.swift */; };
 		755E03151D4ADB5E00AE65D6 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755E03141D4ADB5E00AE65D6 /* GridView.swift */; };
 		755E03171D4AE07400AE65D6 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755E03161D4AE07400AE65D6 /* StatisticsViewController.swift */; };
 		75690FD01D4F9D91009FD2E6 /* Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75690FCF1D4F9D91009FD2E6 /* Fetcher.swift */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		750EF3071D511CFC006A1D49 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		750EF3091D54057C006A1D49 /* GridEditorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridEditorController.swift; sourceTree = "<group>"; };
 		755E03141D4ADB5E00AE65D6 /* GridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		755E03161D4AE07400AE65D6 /* StatisticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		75690FCF1D4F9D91009FD2E6 /* Fetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fetcher.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				750EF3071D511CFC006A1D49 /* TableViewController.swift */,
 				75690FCF1D4F9D91009FD2E6 /* Fetcher.swift */,
 				75727EFE1D4AD53500845572 /* Main.storyboard */,
+				750EF3091D54057C006A1D49 /* GridEditorController.swift */,
 				755E03161D4AE07400AE65D6 /* StatisticsViewController.swift */,
 				75727F011D4AD53500845572 /* Assets.xcassets */,
 				75727F031D4AD53500845572 /* LaunchScreen.storyboard */,
@@ -171,6 +174,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				750EF30A1D54057C006A1D49 /* GridEditorController.swift in Sources */,
 				757072DF1D4C310600132A3A /* StandardEngine.swift in Sources */,
 				750EF3081D511CFC006A1D49 /* TableViewController.swift in Sources */,
 				757072D91D4C286D00132A3A /* EngineDelegate.swift in Sources */,

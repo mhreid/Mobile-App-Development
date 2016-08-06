@@ -123,7 +123,6 @@ class EditGridView: UIView {
                 newPoints.append([$0.0.0, $0.0.1])
             }
         }
-        print(newPoints)
         return newPoints
     }
     

@@ -18,8 +18,15 @@ class GridEditorController: UIViewController{
     override func viewDidLoad() {
         grid.points = StandardEngine.sharedInstance.editPoints
     }
-    @IBAction func save(sender: AnyObject) {
-        TableViewController.tableView.tableContents["Blinker"] = grid.getPoints()
+    func blah() {
+        StandardEngine.sharedInstance.tableContents[StandardEngine.sharedInstance.names[StandardEngine.sharedInstance.editRow]] = grid.getPoints()
     }
+
+    @IBAction func save(sender: UIBarButtonItem) {
+        StandardEngine.sharedInstance.tableContents[StandardEngine.sharedInstance.names[StandardEngine.sharedInstance.editRow]] = grid.getPoints()
+        performSegueWithIdentifier("saveSegue", sender: self)
+    }
+
+
 
 }

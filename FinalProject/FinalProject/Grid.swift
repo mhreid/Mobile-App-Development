@@ -53,7 +53,7 @@ struct Grid: GridProtocol{
     }
     
     func livingNeighbors(pos: Position) -> Int {
-        return neighbors(pos).reduce(0) {
+        return neighbors(pos).reduce(0) { 
                 StandardEngine.sharedInstance.grid[$1.row,$1.col].isLiving() ? $0 + 1 : $0
         }
     }

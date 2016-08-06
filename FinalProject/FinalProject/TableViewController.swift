@@ -11,7 +11,7 @@ import UIKit
 class TableViewController: UITableViewController {
     var names: Array<String> = ["Blinker", "Pentadecthlon", "Glider Gun", "Tumbler"]
     var newPoints: [(Int, Int)] = []
-    var tableContents: Dictionary<String, [[Int]]> = StandardEngine.sharedInstance.tableContents
+    var tableContents: Dictionary<String,[[Int]]> = StandardEngine.sharedInstance.tableContents
 
     static let tableView = TableViewController()
     override func viewDidLoad() {

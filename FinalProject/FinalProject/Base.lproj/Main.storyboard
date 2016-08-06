@@ -426,7 +426,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="grid" destination="u2H-Xh-NfR" id="wxc-uH-kLJ"/>
-                        <outlet property="saveName" destination="OE3-fE-8Fk" id="9nL-ak-f9k"/>
+                        <outlet property="saveName" destination="OE3-fE-8Fk" id="d08-Hu-pYt"/>
                         <segue destination="49e-Tb-3d3" kind="showDetail" identifier="saveSegue" id="3vU-5L-Es9"/>
                     </connections>
                 </viewController>

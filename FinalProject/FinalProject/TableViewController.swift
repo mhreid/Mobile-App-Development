@@ -9,7 +9,7 @@
 import UIKit
 
 class TableViewController: UITableViewController {
-    var names: Array<String> = ["Blinker", "Pentadecthlon", "Glider Gun", "Tumbler"]
+    var names: Array<String> = StandardEngine.sharedInstance.names
     var newPoints: [(Int, Int)] = []
     var tableContents: Dictionary<String,[[Int]]> = StandardEngine.sharedInstance.tableContents
 
@@ -83,13 +83,13 @@ class TableViewController: UITableViewController {
         
     }
     
-    /*override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
      if editingStyle == .Delete {
      names.removeAtIndex(indexPath.row)
      tableView.deleteRowsAtIndexPaths([indexPath],
      withRowAnimation: .Automatic)
      }
-     }*/
+     }
     
     
 

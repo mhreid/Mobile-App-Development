@@ -12,7 +12,8 @@ class GridEditorController: UIViewController{
     static let gridEditor: GridEditorController = GridEditorController()
     @IBOutlet weak var saveName: UITextField!
     @IBAction func go(sender: AnyObject) {
-        grid.setNeedsDisplay()
+        StandardEngine.sharedInstance.tableContents[saveName.text!] = grid.getPoints()
+        StandardEngine.sharedInstance.names.append(saveName.text!)
     }
     @IBOutlet weak var grid: EditGridView!
     override func viewDidLoad() {

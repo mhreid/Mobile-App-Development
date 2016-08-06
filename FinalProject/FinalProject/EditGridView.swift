@@ -52,7 +52,6 @@ class EditGridView: UIView {
             
         }
         
-        
     }
     
     
@@ -115,6 +114,17 @@ class EditGridView: UIView {
         }
         
         self.setNeedsDisplay()
+    }
+    
+    func getPoints() -> [[Int]]{
+        var newPoints: [[Int]] = []
+        _ = grid.cells.map{
+            if $0.1.isLiving(){
+                newPoints.append([$0.0.0, $0.0.1])
+            }
+        }
+        print(newPoints)
+        return newPoints
     }
     
     

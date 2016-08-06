@@ -15,6 +15,11 @@ class GridEditorController: UIViewController{
         grid.setNeedsDisplay()
     }
     @IBOutlet weak var grid: EditGridView!
-    
+    override func viewDidLoad() {
+        grid.points = StandardEngine.sharedInstance.editPoints
+    }
+    @IBAction func save(sender: AnyObject) {
+        TableViewController.tableView.tableContents["Blinker"] = grid.getPoints()
+    }
 
 }

@@ -9,8 +9,10 @@
 import UIKit
 
 class TableViewController: UITableViewController {
-    var names: Array<String> = []
-    var tableContents: Dictionary<String, [[Int]]> = [:]
+    var names: Array<String> = ["Blinker", "Pentadecthlon", "Glider Gun", "Tumbler"]
+    var newPoints: [(Int, Int)] = []
+    var tableContents: Dictionary<String, [[Int]]> = StandardEngine.sharedInstance.tableContents
+
     static let tableView = TableViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,18 +24,17 @@ class TableViewController: UITableViewController {
         if  segue.identifier == "sendToGridSegue",
             let tableRow = tableView.indexPathForSelectedRow?.row
         {
-            var newPoints: [(Int, Int)] = []
             _ = tableContents[names[tableRow]]!.reduce(0){
                 newPoints.append(($0.1[0], $0.1[1]))
                 return 0
             }
-            GridEditorController.gridEditor.grid.points = []
+            StandardEngine.sharedInstance.editRow = tableRow
         }
-
+        StandardEngine.sharedInstance.editPoints = newPoints
     }
 
     
-    override func viewDidAppear(animated: Bool) {
+    /* override func viewDidAppear(animated: Bool) {
         let url = NSURL(string: "https://dl.dropboxusercontent.com/u/7544475/S65g.json")!
         let fetcher = Fetcher()
         
@@ -53,12 +54,11 @@ class TableViewController: UITableViewController {
                 }
                 NSOperationQueue.mainQueue().addOperation(op)
             }
-            
 
         }
-        
-
-    }
+        print (names)
+        print (tableContents)
+    } */
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }

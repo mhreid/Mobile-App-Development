@@ -47,7 +47,7 @@ class GridView: UIView {
             StandardEngine.sharedInstance.grid = Grid(rows: 60, cols: 60)
             StandardEngine.sharedInstance.rows = 60
             StandardEngine.sharedInstance.cols = 60
-            points.map{
+            _ = points.map{
                 return StandardEngine.sharedInstance.grid.cells[$0.0 * StandardEngine.sharedInstance.grid.rows + $0.1].1 = CellState.Alive
                 
             }

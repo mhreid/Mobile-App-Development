@@ -61,7 +61,7 @@ class GridView: UIView {
     
     
     override func drawRect(rect: CGRect) {
-        
+        //problem might be here
         cols = StandardEngine.sharedInstance.grid.cols
         rows = StandardEngine.sharedInstance.grid.rows
         super.drawRect(rect)

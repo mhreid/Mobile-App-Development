@@ -33,32 +33,6 @@ class TableViewController: UITableViewController {
         StandardEngine.sharedInstance.editPoints = newPoints
     }
 
-    
-    /* override func viewDidAppear(animated: Bool) {
-        let url = NSURL(string: "https://dl.dropboxusercontent.com/u/7544475/S65g.json")!
-        let fetcher = Fetcher()
-        
-        fetcher.requestJSON(url) { (json, message) in
-            if let json = json,
-                dict = json as? Array<Dictionary<String,AnyObject>> {
-                self.names = []
-                _ = dict.reduce(0){
-                    if let name = $1["title"] as? String, points = $1["contents"] as? [[Int]]{
-                      self.names.append(name)
-                        self.tableContents[name] = points
-                    }
-                    return 1
-                }
-                let op = NSBlockOperation {
-                    self.tableView.reloadData()
-                }
-                NSOperationQueue.mainQueue().addOperation(op)
-            }
-
-        }
-        print (names)
-        print (tableContents)
-    } */
     override func viewDidAppear(animated: Bool) {
             self.tableView.reloadData()
     }

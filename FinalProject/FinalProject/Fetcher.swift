@@ -9,7 +9,6 @@
 import Foundation
 
 class Fetcher: NSObject, NSURLSessionDelegate, NSURLSessionTaskDelegate {
-    //this code is ALL stolen from lecture
     
     func session() -> NSURLSession {
         let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()

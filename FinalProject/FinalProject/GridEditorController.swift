@@ -22,6 +22,14 @@ class GridEditorController: UIViewController{
     func blah() {
         StandardEngine.sharedInstance.tableContents[StandardEngine.sharedInstance.names[StandardEngine.sharedInstance.editRow]] = grid.getPoints()
     }
+    @IBAction func load(sender: AnyObject) {
+        var newPoints: [(Int, Int)] = []
+        _ = grid.getPoints().map{
+            newPoints.append(($0[0], $0[1]))
+        }
+       StandardEngine.sharedInstance.gridView.points = newPoints
+        performSegueWithIdentifier("loadSegue", sender: self)
+    }
 
     @IBAction func save(sender: UIBarButtonItem) {
         StandardEngine.sharedInstance.tableContents[StandardEngine.sharedInstance.names[StandardEngine.sharedInstance.editRow]] = grid.getPoints()

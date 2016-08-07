@@ -67,7 +67,16 @@ class InstrumentationViewController: UIViewController {
     @IBAction func refreshSwitch(sender: AnyObject) {
         StandardEngine.sharedInstance.on = refreshSwitch.on
     }
-    
+    @IBOutlet weak var newName: UITextField!
+
+    @IBAction func addRow(sender: AnyObject) {
+        StandardEngine.sharedInstance.names.append(newName.text!)
+        StandardEngine.sharedInstance.tableContents[newName.text!] = [[]]
+        StandardEngine.sharedInstance.editPoints = []
+        StandardEngine.sharedInstance.editRow = StandardEngine.sharedInstance.names.count - 1
+        performSegueWithIdentifier("newRowSegue", sender: self)
+    }
+
     @IBOutlet weak var URL: UITextField!
     
     @IBOutlet weak var go: UIButton!
@@ -75,24 +84,33 @@ class InstrumentationViewController: UIViewController {
     //NSURL(string: URL.text!)!
     @IBAction func sendURL(sender: AnyObject) {
         //this makes it so it doesn't crash when you enter an emoji
+        print(StandardEngine.sharedInstance.names)
+
         if let JSONurl: NSURL = NSURL(string: URL.text!){
             
             fetcher.requestJSON(JSONurl) { (json, message) in
-                let op = NSBlockOperation {
-                    if let json = json {
-                        print(json.description)
+                if let json = json,
+                    dict = json as? Array<Dictionary<String,AnyObject>> {
+                    StandardEngine.sharedInstance.names = []
+                    _ = dict.reduce(0){
+                        if let name = $1["title"] as? String, points = $1["contents"] as? [[Int]]{
+                            StandardEngine.sharedInstance.names.append(name)
+                            StandardEngine.sharedInstance.tableContents[name] = points
+                        }
+                        return 1
                     }
-                    else if let message = message {
-                        print(message)
-
+                    let op = NSBlockOperation {
+                        TableViewController.tableView.tableView.reloadData()
                     }
+                    NSOperationQueue.mainQueue().addOperation(op)
                 }
-                NSOperationQueue.mainQueue().addOperation(op)
+                
             }
-            
         } else {
             print("that's an emoji")
         }
+
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()

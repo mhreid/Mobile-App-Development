@@ -9,9 +9,7 @@
 import UIKit
 
 class TableViewController: UITableViewController {
-    var names: Array<String> = StandardEngine.sharedInstance.names
     var newPoints: [(Int, Int)] = []
-    var tableContents: Dictionary<String,[[Int]]> = StandardEngine.sharedInstance.tableContents
 
     static let tableView = TableViewController()
     override func viewDidLoad() {
@@ -24,7 +22,7 @@ class TableViewController: UITableViewController {
         if  segue.identifier == "sendToGridSegue",
             let tableRow = tableView.indexPathForSelectedRow?.row
         {
-            _ = tableContents[names[tableRow]]!.reduce(0){
+            _ = StandardEngine.sharedInstance.tableContents[StandardEngine.sharedInstance.names[tableRow]]!.reduce(0){
                 newPoints.append(($0.1[0], $0.1[1]))
                 return 0
             }
@@ -59,11 +57,14 @@ class TableViewController: UITableViewController {
         print (names)
         print (tableContents)
     } */
+    override func viewDidAppear(animated: Bool) {
+            self.tableView.reloadData()
+    }
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return names.count
+        return StandardEngine.sharedInstance.names.count
     }
     
     
@@ -76,7 +77,7 @@ class TableViewController: UITableViewController {
         guard let nameLabel = cell.textLabel else {
             preconditionFailure("wtf?")
         }
-        nameLabel.text = names[row]
+        nameLabel.text = StandardEngine.sharedInstance.names[row]
         cell.tag = row
         return cell
         
@@ -85,7 +86,8 @@ class TableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
      if editingStyle == .Delete {
-     names.removeAtIndex(indexPath.row)
+        StandardEngine.sharedInstance.tableContents.removeValueForKey(StandardEngine.sharedInstance.names[indexPath.row])
+        StandardEngine.sharedInstance.names.removeAtIndex(indexPath.row)
      tableView.deleteRowsAtIndexPaths([indexPath],
      withRowAnimation: .Automatic)
      }

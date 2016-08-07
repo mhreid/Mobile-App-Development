@@ -182,20 +182,89 @@
                                             <segue destination="ncU-7j-7bH" kind="embed" id="a8E-6f-Q1O"/>
                                         </connections>
                                     </containerView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oyj-0c-jx7">
+                                        <rect key="frame" x="21" y="-18" width="285" height="70"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Row:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4xl-Ze-FWn">
+                                                <rect key="frame" x="20" y="24" width="73" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="73" id="VnD-mr-Ogi"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="VnD-mr-Ogi"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="VnD-mr-Ogi"/>
+                                                    </mask>
+                                                </variation>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cXs-QS-LcZ">
+                                                <rect key="frame" x="131" y="20" width="97" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="257" id="Sbe-fw-NpF"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="Sbe-fw-NpF"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="Sbe-fw-NpF"/>
+                                                    </mask>
+                                                </variation>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUG-vo-bUp">
+                                                <rect key="frame" x="235" y="20" width="30" height="30"/>
+                                                <state key="normal" title="+"/>
+                                                <connections>
+                                                    <action selector="addRow:" destination="9pv-A4-QxB" eventType="touchUpInside" id="lxj-MJ-d0w"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="77f-i3-aca" firstAttribute="leading" secondItem="6GD-dj-ASS" secondAttribute="leading" constant="20" id="0jc-Cf-sTm"/>
                                     <constraint firstItem="emu-w9-52j" firstAttribute="centerX" secondItem="6GD-dj-ASS" secondAttribute="centerX" id="1TA-gn-pIb"/>
+                                    <constraint firstItem="77f-i3-aca" firstAttribute="width" secondItem="oyj-0c-jx7" secondAttribute="width" id="Aum-Kf-zWU"/>
                                     <constraint firstItem="emu-w9-52j" firstAttribute="top" secondItem="NMK-Ki-TjA" secondAttribute="bottom" constant="10" id="BE3-vN-Cfk"/>
                                     <constraint firstItem="NMK-Ki-TjA" firstAttribute="centerX" secondItem="6GD-dj-ASS" secondAttribute="centerX" id="EdT-aB-7eA"/>
                                     <constraint firstAttribute="trailing" secondItem="NMK-Ki-TjA" secondAttribute="trailing" constant="20" id="S9l-b0-no7"/>
+                                    <constraint firstItem="77f-i3-aca" firstAttribute="centerX" secondItem="6GD-dj-ASS" secondAttribute="centerX" id="Seh-po-Y6f"/>
                                     <constraint firstItem="NMK-Ki-TjA" firstAttribute="top" secondItem="77f-i3-aca" secondAttribute="bottom" constant="20" id="T9k-5W-65e"/>
                                     <constraint firstItem="NMK-Ki-TjA" firstAttribute="leading" secondItem="6GD-dj-ASS" secondAttribute="leading" constant="20" id="dqo-md-DjB"/>
-                                    <constraint firstItem="77f-i3-aca" firstAttribute="top" secondItem="6GD-dj-ASS" secondAttribute="top" constant="20" id="nVu-Na-Sf4"/>
+                                    <constraint firstItem="77f-i3-aca" firstAttribute="top" secondItem="oyj-0c-jx7" secondAttribute="bottom" constant="8" id="hhj-Fc-u74"/>
+                                    <constraint firstItem="oyj-0c-jx7" firstAttribute="centerX" secondItem="6GD-dj-ASS" secondAttribute="centerX" id="mGj-09-5ot"/>
+                                    <constraint firstItem="77f-i3-aca" firstAttribute="top" secondItem="6GD-dj-ASS" secondAttribute="top" constant="40" id="nVu-Na-Sf4"/>
                                     <constraint firstAttribute="bottom" secondItem="emu-w9-52j" secondAttribute="bottom" constant="20" id="u7y-KR-oEL"/>
                                     <constraint firstAttribute="trailing" secondItem="77f-i3-aca" secondAttribute="trailing" constant="20" id="viD-zP-y0a"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="mGj-09-5ot"/>
+                                        <exclude reference="Aum-Kf-zWU"/>
+                                        <exclude reference="Seh-po-Y6f"/>
+                                        <exclude reference="hhj-Fc-u74"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="mGj-09-5ot"/>
+                                        <include reference="Aum-Kf-zWU"/>
+                                        <include reference="Seh-po-Y6f"/>
+                                        <include reference="hhj-Fc-u74"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -215,11 +284,12 @@
                         <outlet property="URL" destination="k5h-rx-gV2" id="CAb-U6-jDU"/>
                         <outlet property="colStepper" destination="iW3-CZ-RRl" id="bOM-39-0eY"/>
                         <outlet property="colsField" destination="YGI-n4-aoY" id="tRC-PU-piZ"/>
-                        <outlet property="go" destination="Xzt-hc-Qis" id="9pq-6T-Urh"/>
+                        <outlet property="newName" destination="cXs-QS-LcZ" id="wkb-XD-fd7"/>
                         <outlet property="refreshSwitch" destination="QIT-f7-P5U" id="g47-4Q-9An"/>
                         <outlet property="rowStepper" destination="uiZ-zk-SAZ" id="N4U-r9-hnz"/>
                         <outlet property="rowsField" destination="pll-zq-57k" id="L7X-Zs-MSm"/>
                         <outlet property="timeSlider" destination="prT-dJ-aE1" id="WKX-6k-kxM"/>
+                        <segue destination="a3P-tX-4dM" kind="showDetail" identifier="newRowSegue" id="JRA-fD-ner"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -304,7 +374,11 @@
                                                     </connections>
                                                 </barButtonItem>
                                                 <rightBarButtonItems>
-                                                    <barButtonItem title="Load" id="NoL-J5-f0z"/>
+                                                    <barButtonItem title="Load" id="NoL-J5-f0z">
+                                                        <connections>
+                                                            <action selector="load:" destination="a3P-tX-4dM" id="ZxN-7H-r6O"/>
+                                                        </connections>
+                                                    </barButtonItem>
                                                     <barButtonItem title="Save" id="mJ9-zV-L3Z">
                                                         <connections>
                                                             <action selector="save:" destination="a3P-tX-4dM" id="tbs-rv-Rad"/>
@@ -428,11 +502,12 @@
                         <outlet property="grid" destination="u2H-Xh-NfR" id="wxc-uH-kLJ"/>
                         <outlet property="saveName" destination="OE3-fE-8Fk" id="d08-Hu-pYt"/>
                         <segue destination="49e-Tb-3d3" kind="showDetail" identifier="saveSegue" id="3vU-5L-Es9"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="loadSegue" id="CPY-T3-bCJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3nV-d5-Isf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1488" y="-1298.25"/>
+            <point key="canvasLocation" x="1392" y="-1525.5"/>
         </scene>
         <!--Simulation View Controller-->
         <scene sceneID="wg7-f3-ORb">
@@ -483,7 +558,7 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1LC-59-xcU">
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1LC-59-xcU">
                                                 <rect key="frame" x="101" y="0.0" width="51" height="31"/>
                                                 <color key="onTintColor" red="0.16796571090000001" green="0.20537129160000001" blue="0.32387107329999998" alpha="0.73670212769999999" colorSpace="calibratedRGB"/>
                                                 <connections>
@@ -705,7 +780,7 @@
         <image name="Statistics" width="612" height="792"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3vU-5L-Es9"/>
-        <segue reference="Ngl-s8-aS3"/>
+        <segue reference="CPY-T3-bCJ"/>
+        <segue reference="JRA-fD-ner"/>
     </inferredMetricsTieBreakers>
 </document>

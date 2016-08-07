@@ -17,7 +17,7 @@ class SimulationViewController: UIViewController, EngineDelegate {
     @IBOutlet weak var reset: UIButton!
     
     @IBAction func reset(sender: AnyObject) {
-        StandardEngine.sharedInstance.gridView.points = []
+        StandardEngine.sharedInstance.rows = StandardEngine.sharedInstance.rows
         StandardEngine.sharedInstance.step()
     }
     @IBOutlet weak var mutate: UISwitch!

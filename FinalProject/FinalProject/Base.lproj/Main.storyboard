@@ -290,6 +290,7 @@
                         <outlet property="rowsField" destination="pll-zq-57k" id="L7X-Zs-MSm"/>
                         <outlet property="timeSlider" destination="prT-dJ-aE1" id="WKX-6k-kxM"/>
                         <segue destination="a3P-tX-4dM" kind="showDetail" identifier="newRowSegue" id="JRA-fD-ner"/>
+                        <segue destination="qVM-Br-dCW" kind="show" identifier="toMove" animates="NO" id="WM0-3C-Alj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -627,6 +628,26 @@
             </objects>
             <point key="canvasLocation" x="2934" y="-744"/>
         </scene>
+        <!--Move View-->
+        <scene sceneID="GbH-Zz-630">
+            <objects>
+                <viewController id="qVM-Br-dCW" customClass="MoveView" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1yM-Ab-G9f"/>
+                        <viewControllerLayoutGuide type="bottom" id="uFT-k2-xn1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="omc-as-J6i">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="9pv-A4-QxB" kind="show" identifier="toInstrumentation" animates="NO" id="W4L-eY-bCd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="epL-O7-D2S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-681" y="-1515.75"/>
+        </scene>
         <!--Table View Controller-->
         <scene sceneID="6u0-xf-5PS">
             <objects>
@@ -782,5 +803,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="CPY-T3-bCJ"/>
         <segue reference="JRA-fD-ner"/>
+        <segue reference="W4L-eY-bCd"/>
     </inferredMetricsTieBreakers>
 </document>

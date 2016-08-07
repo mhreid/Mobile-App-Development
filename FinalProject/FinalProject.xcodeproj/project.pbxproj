@@ -26,6 +26,7 @@
 		75727F001D4AD53500845572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75727EFE1D4AD53500845572 /* Main.storyboard */; };
 		75727F021D4AD53500845572 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75727F011D4AD53500845572 /* Assets.xcassets */; };
 		75727F051D4AD53500845572 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75727F031D4AD53500845572 /* LaunchScreen.storyboard */; };
+		75BA5D501D56E752000F015C /* MoveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA5D4F1D56E752000F015C /* MoveView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		75727F011D4AD53500845572 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75727F041D4AD53500845572 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75727F061D4AD53500845572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75BA5D4F1D56E752000F015C /* MoveView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				750EF3071D511CFC006A1D49 /* TableViewController.swift */,
 				75690FCF1D4F9D91009FD2E6 /* Fetcher.swift */,
 				75727EFE1D4AD53500845572 /* Main.storyboard */,
+				75BA5D4F1D56E752000F015C /* MoveView.swift */,
 				750EF3091D54057C006A1D49 /* GridEditorController.swift */,
 				755E03161D4AE07400AE65D6 /* StatisticsViewController.swift */,
 				75727F011D4AD53500845572 /* Assets.xcassets */,
@@ -192,6 +195,7 @@
 				757072E31D4E864800132A3A /* ConfigCell.swift in Sources */,
 				75727EFB1D4AD53500845572 /* InstrumentationViewController.swift in Sources */,
 				75690FD01D4F9D91009FD2E6 /* Fetcher.swift in Sources */,
+				75BA5D501D56E752000F015C /* MoveView.swift in Sources */,
 				757072DB1D4C28E800132A3A /* EngineProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

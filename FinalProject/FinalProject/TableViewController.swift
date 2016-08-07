@@ -19,13 +19,15 @@ class TableViewController: UITableViewController {
     }
     //help from http://www.codingexplorer.com/segue-uitableviewcell-taps-swift/
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        print(StandardEngine.sharedInstance.names)
         if  segue.identifier == "sendToGridSegue",
             let tableRow = tableView.indexPathForSelectedRow?.row
         {
+            if StandardEngine.sharedInstance.tableContents[StandardEngine.sharedInstance.names[tableRow]]! != [[]]{
             _ = StandardEngine.sharedInstance.tableContents[StandardEngine.sharedInstance.names[tableRow]]!.reduce(0){
                 newPoints.append(($0.1[0], $0.1[1]))
                 return 0
-            }
+                }}
             StandardEngine.sharedInstance.editRow = tableRow
         }
         StandardEngine.sharedInstance.editPoints = newPoints

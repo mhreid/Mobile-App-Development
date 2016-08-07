@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class InstrumentationViewController: UIViewController {
     let maxDimension = 60
@@ -74,8 +75,10 @@ class InstrumentationViewController: UIViewController {
         StandardEngine.sharedInstance.tableContents[newName.text!] = [[]]
         StandardEngine.sharedInstance.editPoints = []
         StandardEngine.sharedInstance.editRow = StandardEngine.sharedInstance.names.count - 1
-        performSegueWithIdentifier("newRowSegue", sender: self)
+        self.performSegueWithIdentifier("toMove", sender: self)
+
     }
+    
 
     @IBOutlet weak var URL: UITextField!
     
@@ -109,8 +112,12 @@ class InstrumentationViewController: UIViewController {
         } else {
             print("that's an emoji")
         }
-
         
+        let time = dispatch_time(dispatch_time_t(DISPATCH_TIME_NOW), 2 * Int64(NSEC_PER_SEC))
+        dispatch_after(time, dispatch_get_main_queue()) {
+            self.performSegueWithIdentifier( "toMove", sender: self)
+        }
+
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,6 +129,8 @@ class InstrumentationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+
+
+    }
     
-}
 
